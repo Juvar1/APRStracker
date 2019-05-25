@@ -9,6 +9,7 @@
 
 import bluetooth, re, ax25
 from datetime import datetime
+import zipfile, zlib
 
 # search all available bt devices and put them to array
 results = []
@@ -128,3 +129,7 @@ except KeyboardInterrupt:
 
     print("GPX file saved")
 
+    with zipfile.ZipFile(filename + ".zip") as myzip:
+        myzip.write(filename, compress_type=zipfile.ZIP_DEFLATED)
+    
+    print("ZIP file created")
