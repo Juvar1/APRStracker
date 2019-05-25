@@ -1,7 +1,7 @@
 # APRStracker
 Simple APRS Receiver and GPX Exporter for Mobilinkd TNC with bluetooth.
 
-Keeps track of the route of one selected station and saves it to GPX file format.
+Keeps track of the route of one selected station and saves it to GPX file format. Also compresses it in to ZIP archive often needed on online map services.
 
 ### Supported and tested configuration
 - Works with Python version 3.5
@@ -15,12 +15,13 @@ Keeps track of the route of one selected station and saves it to GPX file format
 - When all necessary data is gathered press <code>Ctrl+C</code> to stop program.
 - Program closes bluetooth socket and saves all trackpoints to GPX file.
 - GPX filename is formed as follows <code>output_[C style timestamp].gpx</code> to prevent overwriting old files.
+- At the end program creates compressed ZIP file containing that GPX file.
 
 ### How it is working
 1. All bluetooth devices is put in to array. If not found any then prints out error message and exit program else prints out all found devices and selects Mobilinkd TNC. If Mobilinkd TNC is not in a list then prints error message and exit program. 
 2. Program tries to connect to Mobilinkd TNC. If it's not succeed then prints error message and exit program. 
 3. Program goes to work loop and receives all APRS messages from TNC with KISS protocol and decodes them. Source address is compared to predefined value. If it match then parses coordinates from message and saves them to array with timestamp. 
-4. When user presses <code>Ctrl+C</code> work loop is terminated and bluetooth socket is closed and array of coordinates is saved to GPX file. Filename contains unique timestamp to prevent overwriting old files.
+4. When user presses <code>Ctrl+C</code> work loop is terminated and bluetooth socket is closed and array of coordinates is saved to GPX file. Filename contains unique timestamp to prevent overwriting old files. At the end program creates compressed ZIP file containing that GPX file.
 
 ### Known issues
 I don't know if it's only me or is it common problem, but bluetooth adapter is not always found and sometimes Mobilinkd device is not found. Disconnecting the adapter for short time and restarting Mobilinkd device will help. I have cheap Chinese bluetooth adapter.
