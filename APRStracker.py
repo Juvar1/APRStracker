@@ -114,8 +114,8 @@ except KeyboardInterrupt:
     print("\nsocket closed")
 
     # create filename with local timestamp
-    filename = "output_%s.gpx" % datetime.now().ctime()
-    with open(filename, "w") as text_file:
+    filename = "output_" + datetime.now().ctime()
+    with open(filename + ".gpx", "w") as text_file:
         text_file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
         text_file.write("<gpx version=\"1.0\">\n")
         text_file.write("    <name>route</name>\n")
@@ -130,6 +130,6 @@ except KeyboardInterrupt:
     print("GPX file saved")
 
     with zipfile.ZipFile(filename + ".zip", mode="w") as myzip:
-        myzip.write(filename, compress_type=zipfile.ZIP_DEFLATED)
+        myzip.write(filename + ".gpx", compress_type=zipfile.ZIP_DEFLATED)
     
     print("ZIP file created")
