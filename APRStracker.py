@@ -129,7 +129,7 @@ except KeyboardInterrupt:
 
     print("GPX file saved")
 
-    with zipfile.ZipFile(filename + ".zip") as myzip:
+    with zipfile.ZipFile(filename + ".zip", mode="w") as myzip:
         myzip.write(filename, compress_type=zipfile.ZIP_DEFLATED)
     
     print("ZIP file created")
