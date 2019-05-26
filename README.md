@@ -7,7 +7,7 @@ Keeps track of the route of one selected station and saves it to GPX file format
 - Works with Python version 3.5
 - Tested with [Mobilinkd TNC](https://store.mobilinkd.com/) through bluetooth.
 - On the transmitting end, aka APRS tracker, Mobilinkd TNC is connected to Android phone with [APRSdroid](https://aprsdroid.org/) installed. TNC is then connected to Baofeng [UV-5RTP](http://baofengradio.com/enProShowcn.asp?ID=425) walkie talkie. It's important to notice that repeater path in APRSdroid settings must be empty so that only recipient is our own base station.
-- On the receiving end, aka APRS base station, other Mobilinkd TNC is connected to Baofeng [UV-5R Plus](http://baofengradio.com/enProShowcn.asp?ID=412) and with bluetooth it's connected to PC with this program running.
+- On the receiving end, aka APRS base station, other Mobilinkd TNC is connected to Baofeng [UV-5R Plus](http://baofengradio.com/enProShowcn.asp?ID=412) and with bluetooth it's connected to PC with this program running. Also there is external outdoor antenna used. It is self made with [these instructions](http://www.users.on.net/~endsodds/jpole.htm).
 
 ### Usage
 - Choose tracked station with this if clause <code>if(data.src.count("OH1FWW")):</code> and run program.
